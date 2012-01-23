@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-has_many :line_items
+  has_many :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -14,8 +14,8 @@ has_many :line_items
     message: 'must be a URL for GIF, JPG or PNG image.'
   }
   validates :title, length: {minimum: 10}
+  
   private
-
     # ensure that there are no line items referencing this product
     def ensure_not_referenced_by_any_line_item
       if line_items.empty?
